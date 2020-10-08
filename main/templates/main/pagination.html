@@ -1,0 +1,24 @@
+<div class="pagination-style text-center">
+    <ul>
+        
+        <li>
+            {% if page.has_previous %}
+            <a class="prev" href="?page={{ page.previous_page_number }}"><i class="la la-angle-left"></i></a>
+            {% endif %}
+        </li>
+        
+        <li><a class="active" href="shop-fullwide-no-sidebar.html#">01</a></li>
+        <li><a href="shop-fullwide-no-sidebar.html#">02</a></li>
+        <li><a href="shop-fullwide-no-sidebar.html#">03</a></li>
+        <li><a href="shop-fullwide-no-sidebar.html#">04</a></li>
+        <li><a href="shop-fullwide-no-sidebar.html#">05</a></li>
+        <li><a href="shop-fullwide-no-sidebar.html#">06</a></li>
+        
+        <li>
+            {% if page.has_next %}
+            <a class="next" href="?page={{ page.next_page_number }}"><i class="la la-angle-right"></i></a>
+         {% endif %}
+     </li>
+       
+    </ul>
+</div>

@@ -1,0 +1,150 @@
+{% extends 'wrapper.html' %}
+{% load static %}
+{% block title %}Оформление заказа{% endblock %}
+{% block content %}
+<body>
+    <div class="main-wrapper">
+        {% include 'header.html' %}
+        {% include 'mobile-header.html' %}
+        <div class="breadcrumb-area bg-img" style="background-image:url(https://demo.hasthemes.com/daxone-preview/daxone/assets/images/bg/breadcrumb.jpg);">
+            <div class="container">
+                <div class="breadcrumb-content text-center">
+                    <h2>Страница оформления заказа</h2>
+                    <ul>
+                        <li>
+                            <a href="{% url 'index' %}">Главная</a>
+                        </li>
+                        <li class="active">Оформить заказ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="checkout-main-area pt-90 pb-90">
+            <div class="container">
+                <div class="customer-zone mb-20">
+                    <div class="checkout-login-info">
+                        <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer, please proceed to the Billing & Shipping section.</p>
+                        <form action="checkout.html#">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="sin-checkout-login">
+                                        <label>Username or email address <span>*</span></label>
+                                        <input type="text" name="user-name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="sin-checkout-login">
+                                        <label>Passwords <span>*</span></label>
+                                        <input type="password" name="user-password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="button-remember-wrap">
+                                <button class="button" type="submit">Login</button>
+                                <div class="checkout-login-toggle-btn">
+                                    <input type="checkbox">
+                                    <label>Remember me</label>
+                                </div>
+                            </div>
+                            <div class="lost-password">
+                                <a href="checkout.html#">Lost your password?</a>
+                            </div>
+                        </form>
+                        <div class="checkout-login-social">
+                            <span>Login with:</span>
+                            <ul>
+                                <li><a href="checkout.html#">Facebook</a></li>
+                                <li><a href="checkout.html#">Twitter</a></li>
+                                <li><a href="checkout.html#">Google</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="customer-zone mb-20">
+                    <div class="checkout-login-info3">
+                        <form action="checkout.html#">
+                            <input type="text" placeholder="Coupon code">
+                            <input type="submit" value="Apply Coupon">
+                        </form>
+                    </div>
+                </div>
+                <div class="checkout-wrap pt-30">
+                    <div class="row">
+                        <div class="col-lg-7">
+                            <form action="{% url 'cart:ordersend' %}" method="POST">
+                            <div class="billing-info-wrap mr-50">
+                                <h3>Заполните форму</h3>
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>Имя </label>
+                                            <input name="name" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="billing-info mb-20">
+                                            <label>Номер телефона </label>
+                                            <input name="phone" type="text">
+                                        </div>
+                                    </div>
+<!--                                    <div class="col-lg-12 col-md-12">-->
+<!--                                        <div class="billing-info mb-20">-->
+<!--                                            <label>Email Address <abbr class="required" title="required">*</abbr></label>-->
+<!--                                            <input type="text">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+                                </div>
+                                <div class="checkout-account-toggle open-toggle2 mb-30">
+                                    <label>Электронная почта</label>
+                                    <input placeholder="example@gmail.com" name="mail">
+                                </div>
+                                <div class="col-md-12">
+                                    <input type="submit" class="btn btn-main btn-block" value="Подтвердить заказ">
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="your-order-area">
+                                <h3>Ваш заказ</h3>
+                                <div class="your-order-wrap gray-bg-4">
+                                    <div class="your-order-info-wrap">
+                                        <div class="your-order-info">
+                                            <ul>
+                                                <li>Продукты <span>Итого</span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-middle">
+                                            <ul>
+                                                <li>Product Name X 1 <span>$329 </span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-info order-subtotal">
+                                            <ul>
+                                                <li>Итого: <span>$329 </span></li>
+                                            </ul>
+                                        </div>
+                                        <div class="your-order-info order-total">
+                                            <ul>
+                                                <li>К оплате: <span>$273.00 </span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="Place-order mt-40">
+                                    <a href="checkout.html#">Place Order</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include 'footer.html' %}
+        {% include 'modal_wrapper.html' %}
+    </div>
+
+</body>
+
+{% endblock %}
