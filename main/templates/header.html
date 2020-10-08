@@ -14,11 +14,11 @@
                                     <ul>
                                         <li class="angle-shape"><a href="{% url 'main:index' %}">Главная</a></li>
                                         <li class="angle-shape"><a href="{% url 'main:shop' %}">Магазин </a></li>
-                                        <li class="angle-shape"><a href="about-us.html">О нас</a>
+                                        <li class="angle-shape"><a href="{% url 'main:about' %}">О нас</a>
                                         <li class="angle-shape"><a href="{% url 'cart:cart_detail' %}">Корзина</a>
                                             
                                         
-                                        <li><a href="contact.html">Контакты</a></li>
+                                        <li><a href="{% url 'main:contact' %}">Контакты</a></li>
                                     </ul>
                                 </nav>
                             </div>

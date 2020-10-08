@@ -13,7 +13,7 @@
                     <h2>Страничка корзины</h2>
                     <ul>
                         <li>
-                            <a href="{% url 'index' %}">Главная</a>
+                            <a href="{% url 'main:index' %}">Главная</a>
                         </li>
                         <li class="active">Корзина</li>
                     </ul>
@@ -66,7 +66,7 @@
                                 <div class="col-lg-12">
                                     <div class="cart-shiping-update-wrapper">
                                         <div class="cart-shiping-update">
-                                            <a href="{% url 'shop' %}">Продолжить покупки</a>
+                                            <a href="{% url 'main:shop' %}">Продолжить покупки</a>
                                         </div>
                                         {% for item in cart %}
                                             {% with product=item.product %}

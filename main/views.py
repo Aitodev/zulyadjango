@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product
+from .models import Product, Sizes
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
@@ -35,7 +35,15 @@ def product(request, slug_product):
 
 
 def product_detail(request, id, slug):
-    product = get_object_or_404(Product, id=id, slug=slug)
+    product = get_object_or_404(Product, Sizes,  id=id, slug=slug)
     return render(request, 'main/product-details.html', {'product': product})
+
+
+def about(request):
+    return render(request, 'main/about.html')
+
+
+def contact(request):
+    return render(request, 'main/contact.html')
 
 

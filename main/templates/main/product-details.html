@@ -9,12 +9,12 @@
         <div class="breadcrumb-area bg-img" style="background-image:url(https://demo.hasthemes.com/daxone-preview/daxone/assets/images/bg/breadcrumb.jpg);">
             <div class="container">
                 <div class="breadcrumb-content text-center">
-                    <h2>Product details page</h2>
+                    <h2>{{ product.name }}</h2>
                     <ul>
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="{% url 'main:shop' %}">Главная</a>
                         </li>
-                        <li class="active">Product details </li>
+                        <li class="active">{{ product.name }} </li>
                     </ul>
                 </div>
             </div>
@@ -24,27 +24,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-img-left">
-                            <img class="zoompro" src="https://demo.hasthemes.com/daxone-preview/daxone/assets/images/product-details/pro-details-1.jpg" data-zoom-image="assets/images/product-details/product-detalis-bl1.jpg" alt="product-details-img">
+                            <img class="zoompro" src="{{ product.img.url }}" data-zoom-image="assets/images/product-details/product-detalis-bl1.jpg" alt="product-details-img">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="product-details-content pro-details-content-modify">
-                            <span>Life Style</span>
-                            <h2>LaaVista Depro, FX 829 v1</h2>
-                            <div class="product-ratting-review">
-                                <div class="product-ratting">
-                                    <i class="la la-star"></i>
-                                    <i class="la la-star"></i>
-                                    <i class="la la-star"></i>
-                                    <i class="la la-star"></i>
-                                    <i class="la la-star-half-o"></i>
-                                </div>
-                                <div class="product-review">
-                                    <span>40+ Reviews</span>
-                                </div>
-                            </div>
+                            <span>{{ product.category }}</span>
+                            <h2>{{ product.name }}</h2>
                             <div class="pro-details-color-wrap">
-                                <span>Color:</span>
+                                <span>Цвета:</span>
                                 <div class="pro-details-color-content">
                                     <ul>
                                         <li class="green"></li>
@@ -55,38 +43,29 @@
                                 </div>
                             </div>
                             <div class="pro-details-size">
-                                <span>Size:</span>
+                                <span>Размер:</span>
                                 <div class="pro-details-size-content">
                                     <ul>
-                                        <li><a href="product-details.html#">s</a></li>
-                                        <li><a href="product-details.html#">m</a></li>
-                                        <li><a href="product-details.html#">xl</a></li>
-                                        <li><a href="product-details.html#">xxl</a></li>
+                                        <li><a href="product-details.html#">{{ sizes.name }}</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="pro-details-price-wrap">
                                 <div class="product-price">
-                                    <span>$210.00</span>
-                                    <span class="old">$230.00</span>
+                                    <span>{{ product.price }}</span>
                                 </div>
-                                <div class="dec-rang"><span>- 30%</span></div>
                             </div>
                             <div class="pro-details-quality">
                                 <div class="cart-plus-minus">
                                     <input class="cart-plus-minus-box" type="text" name="qtybutton" value="02">
                                 </div>
                             </div>
-                            <div class="pro-details-compare-wishlist">
-                                <div class="pro-details-compare">
-                                    <a title="Add To Compare" href="product-details.html#"><i class="la la-retweet"></i> Compare</a>
-                                </div>
-                                <div class="pro-details-wishlist">
-                                    <a title="Add To Wishlist" href="product-details.html#"><i class="la la-heart-o"></i> Add to wish list</a>
-                                </div>
-                            </div>
                             <div class="pro-details-buy-now btn-hover btn-hover-radious">
-                                <a href="product-details.html#">Add To Cart</a>
+                                <form action="{% url 'cart:cart_add' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ cart_product_form }}
+                                    <input type="submit" value="Добавить в корзину">
+                                </form>
                             </div>
                         </div>
                     </div>
